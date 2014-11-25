@@ -26,7 +26,7 @@
 if version < 700
   syntax clear
 elseif exists('b:current_syntax')
-  finish
+  " finish
 endif
 
 call vimfiler#init#_initialize()

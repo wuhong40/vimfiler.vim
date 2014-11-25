@@ -1784,7 +1784,10 @@ function! s:get_abbr_length(parent, child) "{{{
 endfunction"}}}
 
 function! s:check_force_quit(vimfiler, action) "{{{
-  if a:vimfiler.context.force_quit
+  if a:action == "open"
+    " echomsg "action:" . a:action
+    call vimfiler#util#hide_buffer()
+  elseif a:vimfiler.context.force_quit
         \ && index([
         \  'vimfiler__move', 'vimfiler__copy', 'vimfiler__delete',
         \  'vimfiler__rename', 'vimfiler__mkdir',
